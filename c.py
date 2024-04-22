@@ -24,9 +24,6 @@ except ValueError:
 # Replace HOST with the appropriate server IP address if needed
 HOST = '10.0.2.15'
 
-DARK_GREY = '#485460'
-MEDIUM_GREY = '#1e272e'
-OCEAN_BLUE = '#60a3bc'
 WHITE = "white"
 FONT = ("Helvetica", 14)
 
@@ -54,7 +51,7 @@ def send_message():
     message = message_entry.get()
     if message != '':
         message_entry.delete(0, tk.END)
-        message = el_gamal.incrypt_gamal(int(elgamalkey[0]), int(elgamalkey[1]), int(elgamalkey[2]), message)
+        message = el_gamal.ncrypt_gamal(int(elgamalkey[0]), int(elgamalkey[1]), int(elgamalkey[2]), message)
         client.sendall(message.encode("utf-8"))
 
 def listen_for_messages_from_server():
@@ -71,7 +68,7 @@ def listen_for_messages_from_server():
 
             if username != "SERVER":
                 if flagMethod == 2:
-                    content = el_gamal.decrept_gamal(content, int(elgamalkey[3]))
+                    content = el_gamal.dcrypt_gamal(content, int(elgamalkey[3]))
 
             add_message(f"[👤 {username}] {content}")
 
