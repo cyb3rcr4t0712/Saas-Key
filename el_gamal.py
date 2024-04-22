@@ -87,7 +87,7 @@ def generate_public_key():
     print("🔑 Public key YA is generated:", YA)
     return publickey
 
-def incrypt_gamal(q, a, YA, text):
+def ncrypt_gamal(q, a, YA, text):
     print("🔐 Secure Transmission Initiated: Implementing ElGamal Encryption Protocol")
     text = list(text)
     asc = [ord(char) for char in text]
@@ -108,7 +108,7 @@ def incrypt_gamal(q, a, YA, text):
     print("📤 Returned value:", returnedvalue)
     return returnedvalue
 
-def decrept_gamal(messagecopy, XA):
+def dcrypt_gamal(messagecopy, XA):
     print("🔓 Unlocking the Secrets: Commencing Decryption Protocol")
     tempmessage = messagecopy.split(",")
     C1 = int(tempmessage[0])
